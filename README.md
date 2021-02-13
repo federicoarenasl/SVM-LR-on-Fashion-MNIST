@@ -1,5 +1,5 @@
 # Support Vector Machines and Logisitic Regression on the Fashion MNIST dataset
-The full tutorial can be found in this link: https://federicoarenasl.github.io/PCA-on-Fashion-MNIST/. There is also a ```PCA-FMNIST-Tutorial.md``` file in this repository for those who prefer reading it from here directly.
+The full tutorial can be found in this link: https://federicoarenasl.github.io/SVM-LR-on-Fashion-MNIST/. There is also a ```SVM-LR-FMNIST-Tutorial.md``` file in this repository for those who prefer reading it from here directly.
 # A brief introduction 
 In this notebook we will explore the impact of implementing Principal Component Anlysis to an image dataset. For this, we will use the benchmark Fashion MNIST dataset, the link to this dataset can be found [here](https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion). Indeed, the images from the dataset are 784-dimensional images. In this small tutorial we seek to explore if we can further compress the dimension of these images without loosing valuable information.
 
