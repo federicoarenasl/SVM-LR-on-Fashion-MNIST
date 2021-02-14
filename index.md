@@ -80,16 +80,6 @@ Xtrn_nm = Xtrn - Xmean
 Xtst_nm = Xtst - Xmean
 ```
 
-Now, let's only take a subset of our samples for developing our models. We will use the full set when training the final model. For now, we'll only use 1000 samples from our training and testing data.
-
-
-```python
-set_Xtrn_nm = Xtrn_nm[:1000]
-set_Xtst_nm = Xtst_nm[:1000]
-set_Ytrn = Ytrn[:1000]
-set_Ytst = Ytst[:1000]
-```
-
 Now that our data is ready, let's check the performance of a vanilla Logistic Regression model, as well as the performance of a vanilla Support Vector Machine model.
 
 ## Logistic Regression multi-class performance
@@ -99,27 +89,27 @@ To train our Logistic Regression (LR) model, we can simply summon the ```Logisti
 ```python
 # Initialize Multinomial Logistic Regression Model
 LR = LogisticRegression()
-LR.fit(set_Xtrn_nm, set_Ytrn)
+LR.fit(Xtrn_nm, Ytrn)
 
 # Predict labels according
-Y_pred = LR.predict(set_Xtst_nm)
+Y_pred = LR.predict(Xtst_nm)
 
 # Print accuracy on test data and labels
-accuracy = LR.score(set_Xtst_nm, set_Ytst)
+accuracy = LR.score(Xtst_nm, Ytst)
 
 # Print Confusion Matrix
-conf_matrix =  confusion_matrix(set_Ytst, Y_pred)
+conf_matrix =  confusion_matrix(Ytst, Y_pred)
 
 PlotConfusionMatrix(conf_matrix, list(range(0,10)), normalize=True)
 print(f"LR Model's accuracy: {accuracy}") 
 ```
 
-    LR Model's accuracy: 0.79
+    LR Model's accuracy: 0.8401
 
 
 
     
-![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_16_1.svg)
+![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_14_1.svg)
     
 
 
@@ -133,27 +123,27 @@ To train our Logistic Regression (LR) model, we can simply summon the ```SVC``` 
 # Initialize C-Support Vector classifier
 SVM = SVC(kernel="rbf", C = 1.0,gamma="auto")
 # Fit classifier
-SVM.fit(set_Xtrn_nm, set_Ytrn)
+SVM.fit(Xtrn_nm, Ytrn)
 
 # Predict labels according
-Y_pred = SVM.predict(set_Xtst_nm)
+Y_pred = SVM.predict(Xtst_nm)
 
 # Print accuracy on test data and labels
-accuracy = SVM.score(set_Xtst_nm, set_Ytst)
+accuracy = SVM.score(Xtst_nm, Ytst)
 
 # Print Confusion Matrix
-conf_matrix =  confusion_matrix(set_Ytst, Y_pred)
+conf_matrix =  confusion_matrix(Ytst, Y_pred)
 
 print(f"SVM Model's accuracy: {accuracy}") 
 PlotConfusionMatrix(conf_matrix, list(range(0,10)), normalize=True)
 ```
 
-    SVM Model's accuracy: 0.728
+    SVM Model's accuracy: 0.8461
 
 
 
     
-![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_19_1.svg)
+![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_17_1.svg)
     
 
 
@@ -223,7 +213,7 @@ plt.title("Decision surface of Logisitic Regression", fontweight = 'bold', fonts
 
 
     
-![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_22_1.svg)
+![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_20_1.svg)
     
 
 
@@ -292,7 +282,7 @@ plt.title("Decision surface of Support Vector Machine", fontweight = 'bold', fon
 
 
     
-![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_25_1.svg)
+![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_23_1.svg)
     
 
 
@@ -316,8 +306,8 @@ xtrn_ytrn_data = pd.concat([pd.DataFrame(data=Xtrn), pd.DataFrame(data=Ytrn, col
                 , axis=1).sort_values(by=['class'])
 
 # Create small samples of data to speed up training
-Xsmall = pd.concat([xtrn_ytrn_data[xtrn_ytrn_data['class']==i].iloc[:100, :-1] for i in range(0,10)], axis=0).values
-Ysmall = pd.concat([xtrn_ytrn_data[xtrn_ytrn_data['class']==i].iloc[:100, -1] for i in range(0,10)], axis=0).values
+Xsmall = pd.concat([xtrn_ytrn_data[xtrn_ytrn_data['class']==i].iloc[:1000, :-1] for i in range(0,10)], axis=0).values
+Ysmall = pd.concat([xtrn_ytrn_data[xtrn_ytrn_data['class']==i].iloc[:1000, -1] for i in range(0,10)], axis=0).values
 
 # Shuffle data
 Xsmall, Ysmall = shuffle(Xsmall, Ysmall)
@@ -348,7 +338,7 @@ plt.show()
 
 
     
-![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_28_0.svg)
+![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_26_0.svg)
     
 
 
@@ -380,3 +370,8 @@ print(f"Test Accuracy: {tst_accuracy}")
     Train Accuracy: 0.9084166666666667
     Test Accuracy: 0.8765
 
+
+
+```python
+
+```
