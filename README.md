@@ -21,12 +21,12 @@ As described [here](https://github.com/zalandoresearch/fashion-mnist), the datas
 We find that the SVM model performs better than the logistic regression, with a training accuracy of ```90.84%,``` and a testing accuracy of ```87.65%```. The model outputs the following confusion matrix.
 
 <p align="center">
-<img  src="SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_19_1.svg" width="800">
+<img  src="SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_19_1.svg" width="650">
 </p>
 
 We deepen our analysis by looking at the 2D decision boundary of our model.    
 
 <p align="center">
-<img  src="SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_25_1.svg" width="800">
+<img  src="SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_25_1.svg" width="650">
 </p>
 
