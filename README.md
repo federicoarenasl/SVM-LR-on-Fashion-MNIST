@@ -22,7 +22,15 @@ We find that the SVM model performs better than the logistic regression, with a 
 
 ![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_19_1.svg)
 
+<p align="center">
+<img  src="SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_19_1.svg" width="400">
+</p>
+
 We deepen our analysis by looking at the 2D decision boundary of our model.    
 
 ![svg](SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_25_1.svg)
+
+<p align="center">
+<img  src="SVM-LR-FMNIST-Tutorial_files/SVM-LR-FMNIST-Tutorial_25_1.svg" width="400">
+</p>
 
